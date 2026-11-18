@@ -12,24 +12,24 @@ export type OptimizedImage = {
 
 export const siteImages: { hero: OptimizedImage; studio: OptimizedImage } = {
   hero: {
-    id: "IMG_0288", alt: "Glossy nude-pink French manicure with a white satin ribbon detail", label: "The finishing touch",
-    src: "/tata/optimized/IMG_0288-420.webp",
-    srcSet: "/tata/optimized/IMG_0288-420.webp 420w, /tata/optimized/IMG_0288-840.webp 840w, /tata/optimized/IMG_0288-1024.webp 1024w",
-    largeSrc: "/tata/optimized/IMG_0288-1024.webp", width: 1024, height: 1536
+    id: "IMG_0288", alt: "Glossy soft-pink French manicure with a delicate satin detail", label: "Soft pink details",
+    src: "/nails/optimized/IMG_0288-420.webp",
+    srcSet: "/nails/optimized/IMG_0288-420.webp 420w, /nails/optimized/IMG_0288-840.webp 840w, /nails/optimized/IMG_0288-1024.webp 1024w",
+    largeSrc: "/nails/optimized/IMG_0288-1024.webp", width: 1024, height: 1536
   },
   studio: {
-    id: "IMG_0285", alt: "Sculpted milky-white manicure photographed against dark satin", label: "Modern minimalism",
-    src: "/tata/optimized/IMG_0285-420.webp",
-    srcSet: "/tata/optimized/IMG_0285-420.webp 420w, /tata/optimized/IMG_0285-840.webp 840w, /tata/optimized/IMG_0285-1024.webp 1024w",
-    largeSrc: "/tata/optimized/IMG_0285-1024.webp", width: 1024, height: 1536
+    id: "IMG_0285", alt: "Sculpted milky-white manicure photographed against dark satin", label: "Milky finish",
+    src: "/nails/optimized/IMG_0285-420.webp",
+    srcSet: "/nails/optimized/IMG_0285-420.webp 420w, /nails/optimized/IMG_0285-840.webp 840w, /nails/optimized/IMG_0285-1024.webp 1024w",
+    largeSrc: "/nails/optimized/IMG_0285-1024.webp", width: 1024, height: 1536
   }
 };
 
 export const galleryImages: OptimizedImage[] = [
   {
     id: "IMG_0284", alt: "Long sculpted nails with colorful graphic details and fine shimmer", label: "Art in every detail",
-    src: "/tata/optimized/IMG_0284-420.webp",
-    srcSet: "/tata/optimized/IMG_0284-420.webp 420w, /tata/optimized/IMG_0284-840.webp 840w, /tata/optimized/IMG_0284-1152.webp 1152w",
-    largeSrc: "/tata/optimized/IMG_0284-1152.webp", width: 1152, height: 1536
+    src: "/nails/optimized/IMG_0284-420.webp",
+    srcSet: "/nails/optimized/IMG_0284-420.webp 420w, /nails/optimized/IMG_0284-840.webp 840w, /nails/optimized/IMG_0284-1152.webp 1152w",
+    largeSrc: "/nails/optimized/IMG_0284-1152.webp", width: 1152, height: 1536
   }
 ];
