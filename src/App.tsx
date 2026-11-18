@@ -232,7 +232,7 @@ function App() {
                   sizes="(max-width: 760px) 88vw, 43vw"
                   width={siteImages.hero.width}
                   height={siteImages.hero.height}
-                  alt="A glossy soft-pink manicure with delicate nail details"
+                  alt="An original blush-pink K Nails nail-art illustration"
                   loading="eager"
                   decoding="async"
                   fetchPriority="high"
@@ -378,7 +378,7 @@ function App() {
                 sizes="(max-width: 760px) 88vw, 42vw"
                 width={siteImages.studio.width}
                 height={siteImages.studio.height}
-                alt="A close-up of a polished milky-white manicure"
+                alt="An original illustration of a soft-pink manicure"
                 loading="lazy"
                 decoding="async"
               />
