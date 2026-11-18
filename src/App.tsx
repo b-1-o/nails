@@ -16,7 +16,6 @@ import {
   Menu,
   Phone,
   Sparkles,
-  Star,
   X,
 } from "lucide-react";
 
@@ -414,8 +413,8 @@ function App() {
               <h2>Little things make<br /><em>a lovely experience.</em></h2>
             </div>
             <div className="review-content">
-              <div className="review-stars" aria-label="Customer review themes">
-                <Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" /><Star fill="currentColor" />
+              <div className="review-topics">
+                <span>Friendly team</span><span>Nail designs</span><span>Long-time clients</span>
               </div>
               <p>
                 Customers mention the friendly team, creative nail designs, and the familiar neighborhood atmosphere.
