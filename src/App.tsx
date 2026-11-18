@@ -25,7 +25,7 @@ const MAPS_URL = "https://maps.app.goo.gl/VNqh8QbVGU9fU5ZG7";
 const DIRECTIONS_URL =
   "https://www.google.com/maps/dir/?api=1&destination=12650+Sherman+Way+Ste+2%2C+North+Hollywood%2C+CA+91605";
 
-const portfolio = [siteImages.hero, ...galleryImages, siteImages.studio];
+const portfolio = [siteImages.hero, ...galleryImages];
 
 const services = [
   {
