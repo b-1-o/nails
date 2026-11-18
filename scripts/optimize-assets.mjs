@@ -7,21 +7,21 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const sourceDir = path.join(root, "assets");
 const outputDir = path.join(root, "public", "optimized");
 const generatedFile = path.join(root, "src", "assets.generated.ts");
-const publicBase = "/tata/optimized/";
+const publicBase = "/nails/optimized/";
 
 const sources = [
   {
     id: "IMG_0288",
     file: "IMG_0288.PNG",
-    alt: "Glossy nude-pink French manicure with a white satin ribbon detail",
-    label: "The finishing touch",
+    alt: "Glossy soft-pink French manicure with a delicate satin detail",
+    label: "Soft pink details",
     role: "hero",
   },
   {
     id: "IMG_0285",
     file: "IMG_0285.PNG",
     alt: "Sculpted milky-white manicure photographed against dark satin",
-    label: "Modern minimalism",
+    label: "Milky finish",
     role: "studio",
   },
   {
@@ -34,8 +34,8 @@ const sources = [
   {
     id: "IMG_0286",
     file: "IMG_0286.PNG",
-    alt: "A nail-art design from the Tata Nails portfolio",
-    label: "A signature set",
+    alt: "A detailed nail design with a glossy finish",
+    label: "A signature look",
     role: "gallery",
   },
 ];
@@ -52,64 +52,45 @@ for (const item of sources) {
   try {
     const stat = await fs.stat(input);
     sourceBytes += stat.size;
-
     const metadata = await sharp(input, { failOn: "none" }).metadata();
-    if (!metadata.width || !metadata.height) {
-      throw new Error("Image dimensions could not be read");
-    }
+    if (!metadata.width || !metadata.height) throw new Error("Image dimensions could not be read");
 
     const swapped = [5, 6, 7, 8].includes(metadata.orientation ?? 1);
     const width = swapped ? metadata.height : metadata.width;
     const height = swapped ? metadata.width : metadata.height;
-
     const targetWidths = [...new Set(
       [420, 840, 1280].filter((candidate) => candidate < width).concat(width),
     )].sort((a, b) => a - b);
-
     const variants = [];
+
     for (const targetWidth of targetWidths) {
-      const filename = `${item.id}-${targetWidth}.webp`;
+      const filename = item.id + "-" + targetWidth + ".webp";
       const destination = path.join(outputDir, filename);
       await sharp(input, { failOn: "none" })
         .rotate()
-        .resize({
-          width: targetWidth,
-          fit: "inside",
-          withoutEnlargement: true,
-        })
-        .webp({
-          quality: 78,
-          effort: 6,
-          smartSubsample: true,
-        })
+        .resize({ width: targetWidth, fit: "inside", withoutEnlargement: true })
+        .webp({ quality: 78, effort: 6, smartSubsample: true })
         .toFile(destination);
-
       const outStat = await fs.stat(destination);
       outputBytes += outStat.size;
-      variants.push({
-        width: targetWidth,
-        src: publicBase + filename,
-        bytes: outStat.size,
-      });
+      variants.push({ width: targetWidth, src: publicBase + filename, bytes: outStat.size });
     }
 
-    const srcSet = variants.map((variant) => `${variant.src} ${variant.width}w`).join(", ");
-    const result = {
+    const srcSet = variants.map((variant) => variant.src + " " + variant.width + "w").join(", ");
+    optimized.push({
       ...item,
       width,
       height,
       src: variants[0].src,
       srcSet,
       largeSrc: variants[variants.length - 1].src,
-    };
-    optimized.push(result);
+    });
     const fullSize = variants[variants.length - 1].bytes;
     const saved = Math.max(0, Math.round((1 - fullSize / stat.size) * 100));
-    console.log(
-      `✓ ${item.file}: ${width}×${height}, ${(stat.size / 1024).toFixed(0)} KB → ${(fullSize / 1024).toFixed(0)} KB (${saved}% smaller)`,
-    );
+    console.log("Optimized " + item.file + ": " + width + "x" + height + ", " +
+      Math.round(stat.size / 1024) + " KB -> " + Math.round(fullSize / 1024) + " KB (" + saved + "% smaller)");
   } catch (error) {
-    console.warn(`⚠ Skipping ${item.file}: ${error instanceof Error ? error.message : String(error)}`);
+    console.warn("Skipping " + item.file + ": " + String(error));
   }
 }
 
@@ -120,44 +101,47 @@ if (!hero || !studio) {
 }
 const gallery = optimized.filter((image) => image.role === "gallery");
 
-const toEntry = (image) => `  {
-    id: ${JSON.stringify(image.id)},
-    alt: ${JSON.stringify(image.alt)},
-    label: ${JSON.stringify(image.label)},
-    src: ${JSON.stringify(image.src)},
-    srcSet: ${JSON.stringify(image.srcSet)},
-    largeSrc: ${JSON.stringify(image.largeSrc)},
-    width: ${image.width},
-    height: ${image.height},
-  }`;
+const toEntry = (image) => [
+  "  {",
+  "    id: " + JSON.stringify(image.id) + ",",
+  "    alt: " + JSON.stringify(image.alt) + ",",
+  "    label: " + JSON.stringify(image.label) + ",",
+  "    src: " + JSON.stringify(image.src) + ",",
+  "    srcSet: " + JSON.stringify(image.srcSet) + ",",
+  "    largeSrc: " + JSON.stringify(image.largeSrc) + ",",
+  "    width: " + image.width + ",",
+  "    height: " + image.height + ",",
+  "  }",
+].join("\n");
 
-const generated = `// Generated by scripts/optimize-assets.mjs. Do not edit by hand.
-export type OptimizedImage = {
-  id: string;
-  alt: string;
-  label: string;
-  src: string;
-  srcSet: string;
-  largeSrc: string;
-  width: number;
-  height: number;
-};
-
-export const siteImages: { hero: OptimizedImage; studio: OptimizedImage } = {
-  hero: ${toEntry(hero)},
-  studio: ${toEntry(studio)},
-};
-
-export const galleryImages: OptimizedImage[] = [
-${gallery.map(toEntry).join(",\n")}
-];
-`;
+const generated = [
+  "// Generated by scripts/optimize-assets.mjs. Do not edit by hand.",
+  "export type OptimizedImage = {",
+  "  id: string;",
+  "  alt: string;",
+  "  label: string;",
+  "  src: string;",
+  "  srcSet: string;",
+  "  largeSrc: string;",
+  "  width: number;",
+  "  height: number;",
+  "};",
+  "",
+  "export const siteImages: { hero: OptimizedImage; studio: OptimizedImage } = {",
+  "  hero: " + toEntry(hero) + ",",
+  "  studio: " + toEntry(studio),
+  "};",
+  "",
+  "export const galleryImages: OptimizedImage[] = [",
+  gallery.map(toEntry).join(",\n"),
+  "];",
+  "",
+].join("\n");
 
 await fs.writeFile(generatedFile, generated, "utf8");
-
 const savedBytes = sourceBytes - outputBytes;
 const savedPercent = sourceBytes > 0 ? Math.round((savedBytes / sourceBytes) * 100) : 0;
-console.log(
-  `\nOptimized ${optimized.length}/${sources.length} photos: ${(sourceBytes / 1024 / 1024).toFixed(2)} MB → ${(outputBytes / 1024 / 1024).toFixed(2)} MB (${savedPercent}% smaller, responsive WebP, no cropping).`,
-);
-console.log(`Gallery images: ${gallery.length}. Original files in /assets are unchanged.`);
+console.log("Optimized " + optimized.length + "/" + sources.length + " photos: " +
+  (sourceBytes / 1024 / 1024).toFixed(2) + " MB -> " +
+  (outputBytes / 1024 / 1024).toFixed(2) + " MB (" + savedPercent + "% smaller, responsive WebP, no cropping).");
+console.log("Gallery images: " + gallery.length + ". Original files in /assets are unchanged.");

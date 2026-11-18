@@ -1,6 +1,15 @@
-# Tata Nails
+# K Nails
 
-A responsive React + TypeScript website for Tata Nails in North Hollywood, California.
+A responsive React + TypeScript website for K Nails in North Hollywood, California.
+
+## Business details
+
+- Address: 12650 Sherman Way, Suite 2, North Hollywood, CA 91605
+- Phone: (818) 764-3088
+- Google Maps: https://maps.app.goo.gl/VNqh8QbVGU9fU5ZG7
+- Services referenced on the site: manicure, pedicure, nail art, dipping powder and waxing
+
+The site intentionally does not publish unverified prices, appointment links or business hours. Visitors are directed to call the salon for current details.
 
 ## Stack
 
@@ -8,33 +17,19 @@ A responsive React + TypeScript website for Tata Nails in North Hollywood, Calif
 - Vite
 - Framer Motion
 - Lucide icons
-- Custom responsive CSS
+- Responsive custom CSS
+- Sharp-generated responsive WebP images
 
 ## Local development
 
-```bash
-npm install
-npm run dev
-```
+Install dependencies with npm install, then run npm run dev.
 
-Create a production build with:
-
-```bash
-npm run build
-npm run preview
-```
+Create a production build with npm run build and preview it with npm run preview.
 
 ## Deployment
 
-GitHub Actions builds the Vite app and deploys the `dist/` directory to GitHub Pages on every push to `main`.
+GitHub Actions builds the Vite app and deploys the dist directory to GitHub Pages on every push to main.
 
-The Vite base path is configured for this repository: `/tata/`.
+The Vite base path is configured for this repository: /nails/.
 
-## Business links
-
-- Booking: https://www.fresha.com/book-now/tata-nails-u6h9ppwm/all-offer?share=true&pId=2702996
-- Instagram: https://www.instagram.com/tata_nailsnf/
-- Address: 12917 Sherman Way, North Hollywood, CA 91605
-- Phone: (818) 961-1717
-
-Portfolio and studio photos are served from Tata Nails' public Fresha listing.
+Original source photographs remain in /assets. The optimization script writes responsive WebP variants to public/optimized and regenerates src/assets.generated.ts.
