@@ -52,7 +52,7 @@ button { color: inherit; }
   box-shadow: 0 5px 17px rgba(177, 82, 113, .2), inset 0 1px 0 rgba(255,255,255,.5);
 }
 .brand-mark > span { font: 500 23px/1 var(--serif); transform: translateY(-1px); }
-.brand-mark i { position: absolute; top: 4px; right: 3px; color: #fff3f6; font-size: 9px; font-style: normal; }
+.brand-mark .brand-sparkle { position: absolute; top: 4px; right: 3px; color: #fff3f6; font-size: 9px; font-style: normal; }
 .brand-copy { display: flex; flex-direction: column; gap: 4px; }
 .brand-copy strong { font: 600 19px/1 var(--serif); letter-spacing: .12em; }
 .brand-copy small { color: #927d84; font-size: 7px; font-weight: 700; letter-spacing: .16em; }
@@ -119,11 +119,11 @@ button { color: inherit; }
 .info-ribbon > div > span { display: flex; flex-direction: column; gap: 4px; }
 .info-ribbon strong { color: #fff8fa; font: 500 13px/1.2 var(--serif); }
 .info-ribbon small { color: #c6aeb7; font-size: 7px; letter-spacing: .08em; }
-.info-ribbon > i { width: 1px; height: 28px; flex: 0 0 auto; background: rgba(239, 185, 202, .23); }
+.info-ribbon > .ribbon-divider { width: 1px; height: 28px; flex: 0 0 auto; background: rgba(239, 185, 202, .23); }
 .marquee { overflow: hidden; padding: 17px 0; background: #fff6f8; border-bottom: 1px solid #f2e1e7; }
 .marquee-track { display: flex; width: max-content; animation: marquee 38s linear infinite; }
 .marquee-track span { display: inline-flex; align-items: center; gap: 32px; padding-right: 32px; color: #a46b7e; font-size: 8px; font-weight: 700; letter-spacing: .22em; white-space: nowrap; }
-.marquee-track i { color: #d889a2; font-size: 13px; font-style: normal; }
+.marquee-track .marquee-sparkle { color: #d889a2; font-size: 13px; font-style: normal; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 .section-pad { padding: 100px clamp(24px, 8vw, 125px); }
 .services-section { background: #fffdfd; }
@@ -169,15 +169,15 @@ button { color: inherit; }
 .gallery-item img { display: block; width: 100%; height: auto; max-height: 560px; object-fit: contain; background: #f7e9ee; }
 .gallery-overlay { position: absolute; right: 8px; bottom: 8px; left: 8px; display: flex; align-items: center; justify-content: space-between; padding: 26px 14px 13px; color: #fff; background: linear-gradient(transparent, rgba(26,17,22,.72)); }
 .gallery-overlay > span { font: 500 18px/1.1 var(--serif); }
-.gallery-overlay i { display: grid; width: 30px; height: 30px; place-items: center; color: #6f3a4e; border-radius: 50%; background: #fff5f8; font-style: normal; }
+.gallery-overlay .gallery-icon { display: grid; width: 30px; height: 30px; place-items: center; color: #6f3a4e; border-radius: 50%; background: #fff5f8; font-style: normal; }
 .gallery-note { margin: 25px 0 0; color: #9a8990; font-size: 8px; line-height: 1.7; text-align: center; }
 .about-section { display: grid; grid-template-columns: .92fr 1.08fr; align-items: center; gap: clamp(40px, 8vw, 115px); background: #fffdfd; }
 .about-visual { position: relative; width: 100%; max-width: 490px; }
 .about-image-wrap { padding: 10px; border: 1px solid #e3adbd; background: #fff; box-shadow: 0 20px 55px rgba(114, 56, 78, .12); transform: rotate(-1.2deg); }
 .about-image-wrap img { display: block; width: 100%; height: auto; max-height: 570px; object-fit: contain; background: #f7e9ee; }
 .about-sticker { position: absolute; right: -22px; bottom: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 82px; height: 82px; color: #fff; border: 5px solid #fff; border-radius: 50%; background: linear-gradient(140deg, #e9adbf, #b95f7c); box-shadow: 0 7px 22px rgba(127, 58, 82, .2); transform: rotate(9deg); }
-.about-sticker span { font-size: 8px; font-weight: 700; letter-spacing: .15em; }
-.about-sticker svg { margin-top: 4px; }
+.about-sticker .about-seal-svg { font-size: 8px; font-weight: 700; letter-spacing: .15em; }
+.about-sticker .about-seal-svg { display: block; width: 100%; height: 100%; margin: 0; overflow: visible; }
 .about-copy .section-heading { margin-bottom: 20px; }
 .about-copy > p { color: #7f7077; font-size: 11px; line-height: 2; }
 .about-points { display: grid; gap: 13px; margin: 26px 0 30px; }
@@ -290,7 +290,7 @@ button { color: inherit; }
   .info-ribbon > div > svg { width: 15px; height: 15px; }
   .info-ribbon strong { font-size: 11px; }
   .info-ribbon small { font-size: 6px; }
-  .info-ribbon > i { display: none; }
+  .info-ribbon > .ribbon-divider { display: none; }
   .marquee { padding: 13px 0; }
   .marquee-track span { gap: 21px; font-size: 7px; }
   .section-pad { padding: 70px 22px; }
@@ -526,7 +526,7 @@ button { color: inherit; }
   .info-ribbon > div > span { min-width: 0; gap: 5px; }
   .info-ribbon strong { font-size: 12px; line-height: 1.3; }
   .info-ribbon small { font-size: 9px; line-height: 1.4; }
-  .info-ribbon > i { display: none; }
+  .info-ribbon > .ribbon-divider { display: none; }
 
   .marquee { padding: 14px 0; }
   .marquee-track { animation-duration: 48s; }
@@ -602,7 +602,7 @@ button { color: inherit; }
   }
   .gallery-overlay { right: 7px; bottom: 7px; left: 7px; padding: 36px 13px 12px; }
   .gallery-overlay > span { font-size: 19px; }
-  .gallery-overlay i { width: 34px; height: 34px; }
+  .gallery-overlay .gallery-icon { width: 34px; height: 34px; }
   .gallery-note { max-width: 430px; margin: 18px auto 0; font-size: 10px; line-height: 1.65; text-align: left; }
   .gallery-note a { color: #a6506c; text-decoration: underline; text-underline-offset: 3px; }
 
@@ -739,4 +739,54 @@ button { color: inherit; }
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-track { animation: none; }
+}
+
+
+/* SVG icon system: no decorative text glyphs or sticker symbols */
+.brand-mark .brand-sparkle {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 10px;
+  height: 10px;
+  color: #fff3f6;
+}
+.service-symbol {
+  display: grid;
+  place-items: center;
+}
+.service-symbol-svg {
+  display: block;
+  width: 25px;
+  height: 25px;
+  color: currentColor;
+}
+.marquee-track .marquee-sparkle {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  flex: 0 0 auto;
+  color: currentColor;
+}
+.gallery-overlay .gallery-icon {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
+  place-items: center;
+  color: #6f3a4e;
+  border-radius: 50%;
+  background: #fff5f8;
+  font-style: normal;
+}
+.about-sticker .about-seal-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: visible;
+}
+.final-cta-sparkle {
+  width: 80px;
+  height: 80px;
 }
