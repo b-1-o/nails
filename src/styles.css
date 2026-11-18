@@ -362,3 +362,19 @@ button { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+
+.review-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.review-topics span {
+  padding: 7px 10px;
+  color: #f1c6d3;
+  border: 1px solid rgba(232, 167, 186, .3);
+  background: rgba(255, 255, 255, .055);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: .045em;
+}
