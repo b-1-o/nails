@@ -12,24 +12,36 @@ export type OptimizedImage = {
 
 export const siteImages: { hero: OptimizedImage; studio: OptimizedImage } = {
   hero: {
-    id: "IMG_0288", alt: "Glossy soft-pink French manicure with a delicate satin detail", label: "Soft pink details",
-    src: "/nails/optimized/IMG_0288-420.webp",
-    srcSet: "/nails/optimized/IMG_0288-420.webp 420w, /nails/optimized/IMG_0288-840.webp 840w, /nails/optimized/IMG_0288-1024.webp 1024w",
-    largeSrc: "/nails/optimized/IMG_0288-1024.webp", width: 1024, height: 1536
+    id: "K-NAILS-HERO",
+    alt: "Illustrated K Nails polish bottle in blush pink and black",
+    label: "The K Nails look",
+    src: "/nails/optimized/k-nails-hero.svg",
+    srcSet: "/nails/optimized/k-nails-hero.svg 900w",
+    largeSrc: "/nails/optimized/k-nails-hero.svg",
+    width: 900,
+    height: 1200,
   },
   studio: {
-    id: "IMG_0285", alt: "Sculpted milky-white manicure photographed against dark satin", label: "Milky finish",
-    src: "/nails/optimized/IMG_0285-420.webp",
-    srcSet: "/nails/optimized/IMG_0285-420.webp 420w, /nails/optimized/IMG_0285-840.webp 840w, /nails/optimized/IMG_0285-1024.webp 1024w",
-    largeSrc: "/nails/optimized/IMG_0285-1024.webp", width: 1024, height: 1536
+    id: "K-NAILS-STUDIO",
+    alt: "Soft pink illustrated manicure with glossy nail details",
+    label: "A little self-care",
+    src: "/nails/optimized/k-nails-studio.svg",
+    srcSet: "/nails/optimized/k-nails-studio.svg 900w",
+    largeSrc: "/nails/optimized/k-nails-studio.svg",
+    width: 900,
+    height: 1200,
   }
 };
 
 export const galleryImages: OptimizedImage[] = [
   {
-    id: "IMG_0284", alt: "Long sculpted nails with colorful graphic details and fine shimmer", label: "Art in every detail",
-    src: "/nails/optimized/IMG_0284-420.webp",
-    srcSet: "/nails/optimized/IMG_0284-420.webp 420w, /nails/optimized/IMG_0284-840.webp 840w, /nails/optimized/IMG_0284-1152.webp 1152w",
-    largeSrc: "/nails/optimized/IMG_0284-1152.webp", width: 1152, height: 1536
+    id: "K-NAILS-DETAILS",
+    alt: "Illustrated glossy nail shapes with delicate rose-gold details",
+    label: "Glossy details",
+    src: "/nails/optimized/k-nails-details.svg",
+    srcSet: "/nails/optimized/k-nails-details.svg 900w",
+    largeSrc: "/nails/optimized/k-nails-details.svg",
+    width: 900,
+    height: 1200,
   }
 ];
