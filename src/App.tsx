@@ -35,7 +35,7 @@ const services = [
     description:
       "From a clean, natural look to a glossy color finish, find the manicure style that feels like you.",
     tags: ["Natural nails", "Gel polish"],
-    icon: "✳",
+    icon: "manicure",
   },
   {
     number: "02",
@@ -44,7 +44,7 @@ const services = [
     description:
       "Take a pause and enjoy a refreshed look with a polished finish. Tell your technician what feels comfortable.",
     tags: ["Nail care", "Polish"],
-    icon: "✧",
+    icon: "pedicure",
   },
   {
     number: "03",
@@ -53,7 +53,7 @@ const services = [
     description:
       "Explore dipping powder, enhancements and creative designs. Bring a reference and ask the team about your idea.",
     tags: ["Dip powder", "Nail designs"],
-    icon: "✦",
+    icon: "nail-art",
   },
   {
     number: "04",
@@ -62,7 +62,7 @@ const services = [
     description:
       "Waxing services are also listed among the salon offerings. Call ahead to confirm the current service menu.",
     tags: ["Waxing services", "Call to ask"],
-    icon: "✿",
+    icon: "waxing",
   },
 ];
 
@@ -88,6 +88,39 @@ function SectionHeading({
       <h2>{title} {accent && <em>{accent}</em>}</h2>
       {copy && <p>{copy}</p>}
     </div>
+  );
+}
+
+
+function ServiceSymbol({ name }: { name: string }) {
+  return (
+    <svg className="service-symbol-svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      {name === "manicure" && (
+        <>
+          <path d="M14 33.5 12.8 22c-.2-2 2.4-2.7 3.2-.9l2.2 5.2-.6-13.2c-.1-2.2 3.1-2.5 3.3-.2l1.1 11.7.2-13.1c0-2.2 3.2-2.2 3.3 0l.2 13 1.4-10.4c.3-2.1 3.4-1.7 3.2.5l-1.1 13.1 2.2-5.1c.9-2 3.7-.9 3.1 1.2l-3.1 11.1c-.9 3.2-3.8 5.4-7.1 5.4h-3.1c-3.3 0-6.1-2.4-6.6-5.7Z" stroke="currentColor" strokeWidth="1.65" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M19.2 15.7c1.2-1 2.3-1.2 3.2-.8M25.7 14.7c1.2-.8 2.3-.8 3.2-.2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+        </>
+      )}
+      {name === "pedicure" && (
+        <>
+          <path d="M24 8.5c-3 4.3-5.2 8.5-5.2 12.4 0 3.3 2.2 5.5 5.2 5.5s5.2-2.2 5.2-5.5C29.2 17 27 12.8 24 8.5Z" stroke="currentColor" strokeWidth="1.65" strokeLinejoin="round"/>
+          <path d="M16.2 29.4c-3.3 2.1-5.2 4.4-5.2 6.6 0 2.7 5.8 4.5 13 4.5s13-1.8 13-4.5c0-2.2-1.9-4.5-5.2-6.6M19.1 32.3c1.4 1.4 2.9 2.1 4.9 2.1s3.5-.7 4.9-2.1" stroke="currentColor" strokeWidth="1.65" strokeLinecap="round"/>
+          <path d="m12.4 16.5 1.3 2.7 2.7 1.3-2.7 1.2-1.3 2.8-1.2-2.8-2.8-1.2 2.8-1.3 1.2-2.7Z" fill="currentColor" opacity=".72"/>
+        </>
+      )}
+      {name === "nail-art" && (
+        <>
+          <path d="M24 6.5 28 18l11.5 4-11.5 4L24 37.5 20 26l-11.5-4L20 18l4-11.5Z" stroke="currentColor" strokeWidth="1.65" strokeLinejoin="round"/>
+          <path d="m37.5 7 1.5 4.2 4.2 1.5-4.2 1.5-1.5 4.2-1.5-4.2-4.2-1.5 4.2-1.5L37.5 7ZM10 31l1.2 3.3 3.3 1.2-3.3 1.2L10 40l-1.2-3.3-3.3-1.2 3.3-1.2L10 31Z" fill="currentColor"/>
+        </>
+      )}
+      {name === "waxing" && (
+        <>
+          <path d="M24 39.5c-7.7-4.4-12.2-9.3-12.2-15.1 0-4.1 2.6-7.1 6.2-7.1 2.7 0 4.8 1.7 6 4.3 1.2-2.6 3.3-4.3 6-4.3 3.6 0 6.2 3 6.2 7.1 0 5.8-4.5 10.7-12.2 15.1Z" stroke="currentColor" strokeWidth="1.65" strokeLinejoin="round"/>
+          <path d="M24 21.6c-1.7-5.4-5.2-8.7-9.8-9.7M24 21.6c1.7-5.4 5.2-8.7 9.8-9.7M24 22v17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+        </>
+      )}
+    </svg>
   );
 }
 
@@ -159,7 +192,7 @@ function App() {
 
       <header className="site-header">
         <a className="brand" href="#home" aria-label="K Nails home" onClick={closeMenu}>
-          <span className="brand-mark"><span>K</span><i>✦</i></span>
+          <span className="brand-mark"><span>K</span><svg className="brand-sparkle" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0.8 9.8 6.2 15.2 8 9.8 9.8 8 15.2 6.2 9.8.8 8 6.2 6.2 8 .8Z" fill="currentColor"/></svg></span>
           <span className="brand-copy">
             <strong>K NAILS</strong>
             <small>NAIL CARE · NORTH HOLLYWOOD</small>
@@ -255,18 +288,18 @@ function App() {
 
         <section className="info-ribbon" aria-label="K Nails services and location">
           <div><Sparkles size={17} /><span><strong>Manicure & pedicure</strong><small>Everyday nail care</small></span></div>
-          <i />
+          <span className="ribbon-divider" />
           <div><Flower2 size={17} /><span><strong>Nail art & dip powder</strong><small>Details to make it yours</small></span></div>
-          <i />
+          <span className="ribbon-divider" />
           <div><MapPin size={17} /><span><strong>North Hollywood</strong><small>12650 Sherman Way</small></span></div>
-          <i />
+          <span className="ribbon-divider" />
           <div><Phone size={17} /><span><strong>{PHONE_LABEL}</strong><small>Call for availability</small></span></div>
         </section>
 
         <div className="marquee" aria-hidden="true">
           <div className="marquee-track">
             {Array.from({ length: 4 }).map((_, index) => (
-              <span key={index}>A LITTLE SELF-CARE <i>✦</i> YOUR STYLE, YOUR WAY <i>✦</i> BEAUTY IN THE DETAILS <i>✦</i></span>
+              <span key={index}>A LITTLE SELF-CARE <svg className="marquee-sparkle" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 0.7 8.6 5.4 13.3 7 8.6 8.6 7 13.3 5.4 8.6.7 7 5.4 5.4 7 .7Z" fill="currentColor"/></svg> YOUR STYLE, YOUR WAY <svg className="marquee-sparkle" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 0.7 8.6 5.4 13.3 7 8.6 8.6 7 13.3 5.4 8.6.7 7 5.4 5.4 7 .7Z" fill="currentColor"/></svg> BEAUTY IN THE DETAILS <svg className="marquee-sparkle" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 0.7 8.6 5.4 13.3 7 8.6 8.6 7 13.3 5.4 8.6.7 7 5.4 5.4 7 .7Z" fill="currentColor"/></svg></span>
             ))}
           </div>
         </div>
@@ -297,7 +330,7 @@ function App() {
               >
                 <div className="service-card-top">
                   <span className="service-number">{service.number}</span>
-                  <span className="service-symbol" aria-hidden="true">{service.icon}</span>
+                  <span className="service-symbol"><ServiceSymbol name={service.icon} /></span>
                 </div>
                 <span className="service-subtitle">{service.subtitle}</span>
                 <h3>{service.title}</h3>
@@ -361,7 +394,7 @@ function App() {
                 />
                 <span className="gallery-overlay">
                   <span>{photo.label}</span>
-                  <i><ArrowUpRight size={17} /></i>
+                  <span className="gallery-icon"><ArrowUpRight size={17} /></span>
                 </span>
               </motion.button>
             ))}
@@ -383,7 +416,15 @@ function App() {
                 decoding="async"
               />
             </div>
-            <span className="about-sticker"><span>LOVE</span><Heart size={18} fill="currentColor" /></span>
+            <span className="about-sticker" aria-label="Made with love">
+    <svg className="about-seal-svg" viewBox="0 0 100 100" role="img" aria-label="K Nails love seal">
+      <defs><path id="about-seal-circle" d="M50 50m-35 0a35 35 0 1 1 70 0a35 35 0 1 1-70 0"/></defs>
+      <circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" strokeWidth="1.2" opacity=".75"/>
+      <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" strokeWidth=".8" opacity=".55"/>
+      <text fontSize="8" letterSpacing="2.2" fill="currentColor"><textPath href="#about-seal-circle" startOffset="50%" textAnchor="middle">K NAILS · SELF CARE · </textPath></text>
+      <path d="M50 70c-12-8.4-18-14.7-18-22.1 0-5.2 3.5-8.7 8.2-8.7 4.1 0 7.1 2.8 9.8 7.1 2.7-4.3 5.7-7.1 9.8-7.1 4.7 0 8.2 3.5 8.2 8.7C68 55.3 62 61.6 50 70Z" fill="currentColor"/>
+    </svg>
+  </span>
           </div>
           <div className="about-copy">
             <SectionHeading
@@ -467,7 +508,7 @@ function App() {
         </section>
 
         <section className="final-cta">
-          <div className="final-cta-sparkle" aria-hidden="true">✦</div>
+          <svg className="final-cta-sparkle" viewBox="0 0 96 96" fill="none" aria-hidden="true"><path d="M48 5 57.5 38.5 91 48 57.5 57.5 48 91 38.5 57.5 5 48 38.5 38.5 48 5Z" stroke="currentColor" strokeWidth="1.5"/><path d="M48 26 54 42 70 48 54 54 48 70 42 54 26 48 42 42 48 26Z" fill="currentColor" fillOpacity=".18"/></svg>
           <span className="eyebrow">YOUR BEAUTY BREAK IS WAITING</span>
           <h2>Ready for a little<br /><em>glow-up?</em></h2>
           <p>Give the salon a call and plan your next visit.</p>
@@ -478,7 +519,7 @@ function App() {
       <footer className="site-footer">
         <div className="footer-main">
           <a className="brand brand-footer" href="#home">
-            <span className="brand-mark"><span>K</span><i>✦</i></span>
+            <span className="brand-mark"><span>K</span><svg className="brand-sparkle" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0.8 9.8 6.2 15.2 8 9.8 9.8 8 15.2 6.2 9.8.8 8 6.2 6.2 8 .8Z" fill="currentColor"/></svg></span>
             <span className="brand-copy"><strong>K NAILS</strong><small>NAIL CARE · NORTH HOLLYWOOD</small></span>
           </a>
           <p>A little luxury.<br /><em>A lot of you.</em></p>
