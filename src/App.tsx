@@ -232,7 +232,7 @@ function App() {
                   sizes="(max-width: 760px) 88vw, 43vw"
                   width={siteImages.hero.width}
                   height={siteImages.hero.height}
-                  alt="An original blush-pink K Nails nail-art illustration"
+                  alt="Soft pink manicure photographed for beauty inspiration"
                   loading="eager"
                   decoding="async"
                   fetchPriority="high"
@@ -366,7 +366,7 @@ function App() {
               </motion.button>
             ))}
           </div>
-          <p className="gallery-note">Use these looks as inspiration. Ask the K Nails team which designs and finishes are currently available.</p>
+          <p className="gallery-note">These Unsplash photos are style inspiration, not examples of work performed by K Nails. Photo credits: <a href="https://unsplash.com/@jd_chon" target="_blank" rel="noreferrer">Chelson Tamares</a>, <a href="https://unsplash.com/@designecologist" target="_blank" rel="noreferrer">Designecologist</a>, <a href="https://unsplash.com/@giorgiotrovato" target="_blank" rel="noreferrer">Giorgio Trovato</a> and <a href="https://unsplash.com/@anyutakejb" target="_blank" rel="noreferrer">Anna Keibalo</a>.</p>
         </section>
 
         <section className="about-section section-pad" id="about">
@@ -378,7 +378,7 @@ function App() {
                 sizes="(max-width: 760px) 88vw, 42vw"
                 width={siteImages.studio.width}
                 height={siteImages.studio.height}
-                alt="An original illustration of a soft-pink manicure"
+                alt="A nail technician carefully working on a manicure"
                 loading="lazy"
                 decoding="async"
               />
