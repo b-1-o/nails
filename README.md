@@ -18,7 +18,7 @@ The site intentionally does not publish unverified prices, appointment links or 
 - Framer Motion
 - Lucide icons
 - Responsive custom CSS
-- Sharp-generated responsive WebP images
+- Sharp-generated responsive WebP images when source photos are supplied, with built-in SVG artwork fallback
 
 ## Local development
 
@@ -32,4 +32,4 @@ GitHub Actions builds the Vite app and deploys the dist directory to GitHub Page
 
 The Vite base path is configured for this repository: /nails/.
 
-Original source photographs remain in /assets. The optimization script writes responsive WebP variants to public/optimized and regenerates src/assets.generated.ts.
+The image optimizer uses source photos from /assets when they exist. If the source folder is absent, it generates original K Nails SVG artwork in public/optimized so deployments remain buildable.
